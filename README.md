@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+# RubixKube Landing Page
 
-## Project info
+**Tame the Chaos. Talk to Your Infrastructure.**  
+RubixKube turns complex ops into simple conversations with AI agents that observe, learn, and act. Your 24/7 SRE team—always on, always learning, always acting.
 
-**URL**: https://lovable.dev/projects/d2d53982-8f3c-452c-8f7e-f335ac67001d
+---
 
-## How can I edit this code?
+## ✨ Features
 
-There are several ways of editing your application.
+- **Conversational Control**: Manage clusters, apps, and environments using natural language across Slack, Terminal, or the Web.
+- **Smart Agent Operations**: AI agents handle incident detection, remediation, and RCAs so you can focus on what matters.
+- **Evolving Memory**: The system learns from every deployment, incident, and change, constantly updating its knowledge context.
+- **Agent Mesh Network**: Proprietary mesh coordinates specialized AI agents across your infrastructure, forming a network of intelligent agents.
+- **Modern UI**: Built with React, Vite, Tailwind CSS, and shadcn/ui for a beautiful, responsive experience.
+- **Transparent Pricing**: See the [Pricing](#pricing) section for available plans.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d2d53982-8f3c-452c-8f7e-f335ac67001d) and start prompting.
+## 🚀 Quick Start
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js (v18+ recommended)
+- Yarn or npm
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Setup
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Install dependencies
+yarn install
+# or
+npm install
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
+yarn dev
+# or
 npm run dev
+
+# Visit http://localhost:8080 in your browser
 ```
 
-**Edit a file directly in GitHub**
+### Build for Production
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+yarn build
+# or
+npm run build
+```
 
-**Use GitHub Codespaces**
+### Preview Production Build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+yarn preview
+# or
+npm run preview
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 🗂️ Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `src/pages/Index.tsx` — Main landing page composition
+- `src/components/` — All UI components (Hero, Features, Testimonials, Pricing, etc.)
+- `public/` — Static assets (logos, images, SVGs)
+- `tailwind.config.ts` — Tailwind CSS configuration
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/d2d53982-8f3c-452c-8f7e-f335ac67001d) and click on Share -> Publish.
+## 🧩 Tech Stack
 
-## Can I connect a custom domain to my Lovable project?
+- **React 18** + **Vite** for fast, modern development
+- **Tailwind CSS** for utility-first styling
+- **shadcn/ui** for accessible, customizable UI primitives
+- **Radix UI** for headless UI components
+- **Lucide Icons** for crisp, modern icons
+- **React Router** for client-side routing
+- **TanStack React Query** for data management
+- **TypeScript** for type safety
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📄 License
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+© 2025 RubixKube. All rights reserved.
+
+---
+
+## 🙏 Acknowledgements
+
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Lucide Icons](https://lucide.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+---
+
+Feel free to further customize this README for your deployment, contribution guidelines, or additional documentation!

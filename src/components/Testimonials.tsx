@@ -1,25 +1,24 @@
-
 const testimonials = [
   {
-    quote: "RubixKube feels like a cloud-native co-pilot — it's made operations a conversation, not a battle.",
+    quote: "RubixKube feels like a cloud-native co-pilot. It's made operations a conversation, not a battle.",
     author: "CTO",
     role: "AI Startup",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+    image: "/lovable-uploads/pexels-googledeepmind-18069230.jpg",
   },
   {
-    quote: "We deploy, debug, and optimize 10x faster without getting lost in dashboards or YAML.",
+    quote: "We deploy, debug, and optimize 10x faster now. RubixKube is truely a game-changer.",
     author: "Lead SRE",
     role: "Fintech Scaleup",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    image: "/lovable-uploads/pexels-googledeepmind-18069490.jpg",
   },
 ];
 
 const Testimonials = () => {
   return (
     <section id="testimonials" className="py-20 bg-gradient-to-br from-primary/5 via-white to-primary/5">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 md:px-12 xl:px-32">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          What Customers Are Saying
+          Success Stories
         </h2>
         <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
           See how teams are transforming their infrastructure operations with RubixKube

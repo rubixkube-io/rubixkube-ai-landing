@@ -1,22 +1,16 @@
 
 const testimonials = [
   {
-    quote: "RubixKube has completely transformed how we manage our infrastructure. The AI-driven approach saves us countless hours.",
-    author: "Sarah Chen",
-    role: "DevOps Lead, TechCorp",
+    quote: "RubixKube feels like a cloud-native co-pilot — it's made operations a conversation, not a battle.",
+    author: "CTO",
+    role: "AI Startup",
     image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
   },
   {
-    quote: "The conversational interface is a game-changer. It's like having an expert DevOps engineer available 24/7.",
-    author: "Michael Rodriguez",
-    role: "CTO, StartupFlow",
+    quote: "We deploy, debug, and optimize 10x faster without getting lost in dashboards or YAML.",
+    author: "Lead SRE",
+    role: "Fintech Scaleup",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-  },
-  {
-    quote: "We've reduced our deployment times by 80% since implementing RubixKube. The ROI has been incredible.",
-    author: "James Wilson",
-    role: "Infrastructure Manager, EnterpriseScale",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5",
   },
 ];
 
@@ -25,12 +19,12 @@ const Testimonials = () => {
     <section id="testimonials" className="py-20 bg-gradient-to-br from-primary/5 via-white to-primary/5">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Trusted by Teams Worldwide
+          What Customers Are Saying
         </h2>
         <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-          See what our customers have to say about their experience with RubixKube
+          See how teams are transforming their infrastructure operations with RubixKube
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
               <div className="h-48 overflow-hidden">

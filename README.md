@@ -94,7 +94,3 @@ npm run preview
 - [Lucide Icons](https://lucide.dev/)
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
-
----
-
-Feel free to further customize this README for your deployment, contribution guidelines, or additional documentation!

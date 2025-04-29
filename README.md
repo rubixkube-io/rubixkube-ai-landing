@@ -1,4 +1,6 @@
-# RubixKube Landing Page
+# RubixKube Ai
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/54553194-4f95-4c48-9207-4b03e1342ba4/deploy-status?branch=gh-pages)](https://app.netlify.com/sites/spiffy-liger-00cfee/deploys)
 
 **Tame the Chaos. Talk to Your Infrastructure.**  
 RubixKube turns complex ops into simple conversations with AI agents that observe, learn, and act. Your 24/7 SRE team—always on, always learning, always acting.

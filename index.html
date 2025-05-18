@@ -13,6 +13,56 @@
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Hidden forms for Netlify form detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="organization" />
+      <textarea name="message"></textarea>
+    </form>
+    
+    <form name="demo-request" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="organization" />
+      <textarea name="message"></textarea>
+    </form>
+    
+    <form name="get-started" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="organization" />
+      <textarea name="message"></textarea>
+    </form>
+    
+    <form name="header-get-started" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="organization" />
+      <textarea name="message"></textarea>
+    </form>
+    
+    <form name="header-book-demo" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="organization" />
+      <textarea name="message"></textarea>
+    </form>
+    
+    <form name="early-access" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="organization" />
+      <textarea name="message"></textarea>
+    </form>
+    
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
+import { ArrowRight, CalendarCheck, Sparkles, ExternalLink, Menu, X } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isGetStartedFormOpen, setIsGetStartedFormOpen] = useState(false);
+  const [isBookDemoFormOpen, setIsBookDemoFormOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,15 +29,117 @@ const Header = () => {
           </span>
           <nav className="hidden md:flex space-x-6">
             <a href="#features" className="text-gray-600 hover:text-primary transition-colors">Features</a>
-            <a href="#pricing" className="text-gray-600 hover:text-primary transition-colors">Pricing</a>
-            <a href="#testimonials" className="text-gray-600 hover:text-primary transition-colors">Testimonials</a>
+            <a href="#pricing" className="text-gray-600 hover:text-primary transition-colors">Early Access</a>
+            <a href="#testimonials" className="text-gray-600 hover:text-primary transition-colors">Success Stories</a>
           </nav>
         </div>
-        <div className="flex items-center space-x-4">
-          {/* <Button variant="ghost">Log in</Button> */}
-          <Button className="bg-primary hover:bg-primary-dark text-white">Get Started</Button>
+        
+        {/* Desktop buttons */}
+        <div className="hidden md:flex items-center space-x-4">
+          <Button 
+            variant="ghost" 
+            className="flex items-center gap-1 font-medium transition-all group relative"
+            onClick={() => setIsGetStartedFormOpen(true)}
+          >
+            <span className="font-semibold transition-colors">Get Started</span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300"></span>
+          </Button>
+          
+          <Button 
+            className="bg-gradient-to-r from-primary to-accent text-white shadow-md hover:shadow-xl rounded-full px-5 py-2 flex items-center gap-2 group hover:scale-105 transition-all duration-300"
+            onClick={() => setIsBookDemoFormOpen(true)}
+          >
+            <CalendarCheck className="h-4 w-4 group-hover:rotate-12 group-hover:animate-spin-slow transition-transform" />
+            <span className="font-bold">Book Demo</span>
+            <Sparkles className="h-3.5 w-3.5 opacity-70 group-hover:opacity-100 group-hover:animate-pulse" />
+          </Button>
         </div>
+        
+        {/* Mobile menu button */}
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="md:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </Button>
       </div>
+      
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white/95 backdrop-blur-md shadow-lg py-4 px-6 absolute top-full left-0 right-0 border-t border-gray-100">
+          <nav className="flex flex-col space-y-4 mb-6">
+            <a 
+              href="#features" 
+              className="text-gray-600 hover:text-primary transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Features
+            </a>
+            <a 
+              href="#pricing" 
+              className="text-gray-600 hover:text-primary transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Early Access
+            </a>
+            <a 
+              href="#testimonials" 
+              className="text-gray-600 hover:text-primary transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Success Stories
+            </a>
+          </nav>
+          
+          <div className="flex flex-col space-y-3">
+            <Button 
+              variant="ghost" 
+              className="w-full justify-center py-2 relative group overflow-hidden"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsGetStartedFormOpen(true);
+              }}
+            >
+              <span className="font-semibold">Get Started</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300"></span>
+            </Button>
+            
+            <Button 
+              className="w-full bg-gradient-to-r from-primary to-accent text-white shadow-md rounded-full py-2 justify-center flex items-center gap-2"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsBookDemoFormOpen(true);
+              }}
+            >
+              <CalendarCheck className="h-4 w-4" />
+              <span className="font-bold">Book Demo</span>
+              <Sparkles className="h-3.5 w-3.5" />
+            </Button>
+          </div>
+        </div>
+      )}
+      
+      {/* Contact Form for Get Started */}
+      <ContactForm 
+        isOpen={isGetStartedFormOpen}
+        onOpenChange={setIsGetStartedFormOpen}
+        title="Get Started with RubixKube"
+        description="Fill out the form below and our team will help you get started with RubixKube."
+        submitButtonText="Submit Request"
+        formName="header-get-started"
+      />
+      
+      {/* Contact Form for Book Demo */}
+      <ContactForm 
+        isOpen={isBookDemoFormOpen}
+        onOpenChange={setIsBookDemoFormOpen}
+        title="Book Your Personalized Demo"
+        description="Schedule a personalized demo to see how RubixKube can transform your infrastructure management."
+        submitButtonText="Schedule Demo"
+        formName="header-book-demo"
+      />
     </header>
   );
 };

@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import ContactForm from "@/components/ContactForm";
 
 const Hero = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   return (
     <section className="pt-32 pb-20 bg-gradient-to-br from-primary/5 via-white to-accent/5 overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 xl:px-32">
@@ -19,8 +23,12 @@ const Hero = () => {
               Always on. Always learning. Always acting.
             </p>
             <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-in">
-              <Button size="lg" className="bg-primary hover:bg-primary-dark group transition-all duration-300 text-white rounded-full shadow-lg shadow-primary/30 hover:shadow-primary/50 focus:ring-4 focus:ring-primary/30 focus:outline-none px-8 py-4 text-lg font-semibold tracking-wide">
-               Get Started Free
+              <Button 
+                size="lg"
+            className="bg-primary hover:bg-primary-dark group text-white shadow-lg shadow-primary/30 hover:shadow-primary/50 focus:ring-4 focus:ring-primary/30 focus:outline-none px-8 py-4 hover:scale-105 transition-all duration-300"
+                onClick={() => setIsFormOpen(true)}
+              >
+               Book A Free Demo
               </Button>
             </div>
           </div>
@@ -34,6 +42,16 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Contact Form */}
+      <ContactForm 
+        isOpen={isFormOpen}
+        onOpenChange={setIsFormOpen}
+        title="Book A Free Demo"
+        description="Fill out the form below to schedule a personalized demo with our team."
+        submitButtonText="Schedule Demo"
+        formName="demo-request"
+      />
     </section>
   );
 };

@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import ContactForm from "@/components/ContactForm";
 
 const CallToAction = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-transparent opacity-80"></div>
@@ -12,13 +16,29 @@ const CallToAction = () => {
             Ready to Rethink Infra Ops?
           </h2>
           <p className="text-xl mb-8 text-white/90">
-            RubixKube helps you ship faster, operate smarter, and sleep better — with an evolving, AI-powered control plane at your side.
+            RubixKube helps you ship faster, operate smarter, and sleep better —
+            with an evolving, AI-powered control plane at your side.
           </p>
-          <Button size="lg" className="bg-primary text-white hover:bg-primary-dark hover:scale-105 transition-all duration-300">
-            Get Started Now <ArrowRight className="ml-2 h-4 w-4" />
+          <Button
+            size="lg"
+            className="bg-primary text-white hover:bg-primary-dark hover:scale-105 transition-all duration-300"
+            onClick={() => setIsFormOpen(true)}
+          >
+            Get Started Now{" "}
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </div>
+
+      {/* Contact Form */}
+      <ContactForm
+        isOpen={isFormOpen}
+        onOpenChange={setIsFormOpen}
+        title="Get Started with RubixKube"
+        description="Fill out the form below and our team will help you get started with RubixKube."
+        submitButtonText="Submit Request"
+        formName="get-started"
+      />
     </section>
   );
 };

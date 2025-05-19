@@ -43,31 +43,66 @@ const ContactForm = ({
 }: ContactFormProps) => {
   const [formData, setFormData] = useState<ContactFormData>(defaultFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // We don't need to handle the actual form submission manually
-    // Netlify will intercept the form submission and handle it
-    
-    // Just show a success toast
-    toast({
-      title: "Request Submitted",
-      description: "We've received your request. We'll be in touch soon!",
-    });
-    
-    // Call custom onSubmit handler if provided
-    if (onSubmit) {
-      onSubmit(formData);
+    try {
+      // Get form data
+      const form = e.target as HTMLFormElement;
+      const data = new FormData(form);
+      
+      // Submit form using fetch to handle SPA navigation
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data as any).toString()
+      })
+      .then(() => {
+        setIsSuccess(true);
+        
+        // Show success toast
+        toast({
+          title: "Request Submitted",
+          description: "We've received your request. We'll be in touch soon!",
+        });
+        
+        // Call custom onSubmit handler if provided
+        if (onSubmit) {
+          onSubmit(formData);
+        }
+        
+        // Reset form data
+        setFormData(defaultFormData);
+        
+        // Close the form after a short delay
+        setTimeout(() => {
+          onOpenChange(false);
+          setIsSuccess(false); 
+        }, 1000);
+      })
+      .catch((error) => {
+        console.error("Form submission error:", error);
+        toast({
+          title: "Submission Failed",
+          description: "There was a problem submitting your request. Please try again.",
+          variant: "destructive"
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+    } catch (error) {
+      console.error("Form handling error:", error);
+      setIsSubmitting(false);
+      toast({
+        title: "Submission Failed",
+        description: "There was a problem with your request. Please try again.",
+        variant: "destructive"
+      });
     }
-    
-    // Close the form
-    onOpenChange(false);
-    
-    // Reset form data
-    setFormData(defaultFormData);
-    setIsSubmitting(false);
   };
 
   // Handle form input changes

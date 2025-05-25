@@ -54,15 +54,17 @@ const animationStyles = `
 // Map of dates and available seats
 // Starting from May 18, 2025, with daily decreases of 10-20 seats
 const availableSeatsData = {
-  "2025-05-18": 100,
-  "2025-05-19": 85,
-  "2025-05-20": 68,
-  "2025-05-21": 56,
-  "2025-05-22": 42,
-  "2025-05-23": 30,
-  "2025-05-24": 17,
-  "2025-05-25": 5,
-  "2025-05-26": 0
+  "2025-05-25": 100,
+  "2025-05-28": 85,
+  "2025-05-30": 68,
+  "2025-06-01": 56,
+  "2025-06-03": 42,
+  "2025-06-05": 30,
+  "2025-06-07": 17,
+  "2025-06-09": 10,
+  "2025-06-11": 5,
+  "2025-06-13": 0, // No seats available after this date
+
 };
 
 const EarlyAdaptation = () => {

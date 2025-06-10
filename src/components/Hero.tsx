@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
-import ContactForm from "@/components/ContactForm";
+import { PopupModal } from "react-calendly"
 
 const Hero = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -43,15 +43,15 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Contact Form */}
-      <ContactForm 
-        isOpen={isFormOpen}
-        onOpenChange={setIsFormOpen}
-        title="Book A Free Demo"
-        description="Fill out the form below to schedule a personalized demo with our team."
-        submitButtonText="Schedule Demo"
-        formName="demo-request"
-      />
+      {isFormOpen && (
+  <PopupModal
+    url="https://calendly.com/rubixkube/new-meeting"
+    onModalClose={() => setIsFormOpen(false)}
+    open={true}
+    rootElement={document.body}
+  />
+)}
+
     </section>
   );
 };

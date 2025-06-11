@@ -83,7 +83,7 @@ const Footer = () => {
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <a
-              href="https://github.com/your-org"
+              href="https://github.com/rubixkube-io"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary"

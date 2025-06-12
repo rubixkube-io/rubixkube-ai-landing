@@ -25,7 +25,7 @@ const About = () => {
           <div className="relative z-10 max-w-5xl mx-auto">
             {/* Title - clean and bold */}
             <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+              <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-4 tracking-tight">
                 Our Story
               </h1>
               <div className="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
@@ -34,7 +34,7 @@ const About = () => {
             {/* First card - featured story */}
             <div className="text-center max-w-4xl mx-auto mb-16">
               <div className="bg-white rounded-2xl p-10 shadow-lg border border-gray-200/50">
-                <p className="text-xl md:text-2xl leading-relaxed text-gray-800 font-medium">
+                <p className="text-lg md:text-xl leading-relaxed text-gray-800 font-normal">
                   RubixKube was born out of a simple question: 
                   <span className="text-blue-600 font-semibold"> What if managing infrastructure could be as intuitive as having a conversation?</span>
                 </p>
@@ -58,14 +58,14 @@ const About = () => {
             {/* Rest of the content as paragraphs */}
             <div className="text-center max-w-4xl mx-auto">
               <div className="bg-white/60 backdrop-blur-sm rounded-xl p-10 border border-white/40">
-                <p className="text-lg md:text-xl leading-relaxed text-gray-700 mb-4">
+                <p className="text-base md:text-lg leading-relaxed text-gray-700 mb-4 font-normal">
                   In a world flooded with dashboards, alerts, and YAML files, we saw teams drowning in complexity and reactive toil. 
                   So we set out to build something <span className="text-blue-600 font-semibold">radically different</span>—an AI-native platform 
                   that brings intelligence, autonomy, and reliability to infrastructure operations. At its heart, RubixKube is powered by a <span className="text-blue-600 font-semibold">collaborative agentic mesh</span>—a system 
                   of specialized AI agents that observe, plan, and act together across environments.
                 </p>
-                <p className="text-lg md:text-xl leading-relaxed text-gray-700">
-                  These agents are enhanced by a dynamic memory system that learns from every incident, enabling smarter, faster decisions over time. Our conversational interface lets teams interact with their infrastructure naturally, turning complex tasks into plain-language commands. With deep observability, built-in guardrails, and a focus on safety and governance, 
+                <p className="text-base md:text-lg leading-relaxed text-gray-700 font-normal">
+                  These agents are enhanced by a dynamic memory system that learns from every incident, enabling smarter, faster decisions over time. Our conversational interface lets teams interact with their infrastructure naturally, turning complex tasks into plain language commands. With deep observability, built in guardrails, and a focus on safety and governance, 
                   RubixKube empowers teams to <span className="text-blue-600 font-semibold">move fast, stay in control, and build with confidence</span>.
                 </p>
               </div>
@@ -74,8 +74,8 @@ const About = () => {
             {/* Call to action section */}
             <div className="mt-20 text-center">
               <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-10 text-white shadow-xl">
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to Transform Your Infrastructure?</h3>
-                <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
+                <h3 className="text-2xl md:text-3xl font-extrabold mb-4 tracking-tight">Ready to Transform Your Infrastructure?</h3>
+                <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-base md:text-lg font-normal leading-relaxed">
                   Join the teams already using RubixKube to simplify their infrastructure operations and build the future of intelligent systems.
                 </p>
                 <button 

@@ -52,7 +52,7 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 text-primary mt-1" />
                 <a href="mailto:hello@rubixkube.ai" className="hover:underline">
-                  hello@rubixkube.ai
+                  connect@rubixkube.io
                 </a>
               </li>
               <li className="flex items-start gap-2">

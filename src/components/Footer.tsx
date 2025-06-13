@@ -1,4 +1,4 @@
-import { Github, Mail, Phone, MessageCircle, Linkedin } from "lucide-react";
+import { Github, Mail, Phone, MessageCircle, Linkedin, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Product</h3>
             <ul className="space-y-2">
               <li><a href="#features" className="text-muted-foreground hover:text-primary">Features</a></li>
-              <li><a href="#pricing" className="text-muted-foreground hover:text-primary">Pricing</a></li>
+              <li><a href="/product-details" className="text-muted-foreground hover:text-primary">Details</a></li>
               <li><a href="#testimonials" className="text-muted-foreground hover:text-primary">Testimonials</a></li>
             </ul>
           </div>
@@ -56,12 +56,12 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <Phone className="h-4 w-4 text-primary mt-1" />
-                <a href="tel:+917483927043" className="hover:underline">
-                  +91 7483927043
-                </a>
+                  <MapPin className="h-4 w-4 text-primary mt-1" />
+                  <p className="text-muted-foreground flex items-center gap-2">
+                  Bengaluru, India
+                  </p>
               </li>
-              <li className="flex items-start gap-2">
+              {/* <li className="flex items-start gap-2">
                 <MessageCircle className="h-4 w-4 text-green-500 mt-1" />
                 <a
                   href="https://wa.me/917483927043"
@@ -71,7 +71,7 @@ const Footer = () => {
                 >
                   Chat on WhatsApp
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

@@ -35,12 +35,16 @@ const About = () => {
                 {/* Main content - matching product-details structure */}
                 <div className="animate-fade-in">
                   <p className="text-xl leading-relaxed text-muted-foreground max-w-xl mb-6">
-                    RubixKube was born out of a simple question: <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">What if managing infrastructure could be as intuitive as having a conversation?</span> 
-                    In a world flooded with dashboards, alerts, and YAML files, we saw teams drowning in complexity and reactive toil.
+                    RubixKube began with a simple question: <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">What if managing infrastructure could be as intuitive as having a conversation?</span>
+                  </p>
+                  <p className="text-xl leading-relaxed text-muted-foreground max-w-xl mb-6">
+                    In a world saturated with dashboards, alerts, and complex configuration files, we saw engineering teams overwhelmed by operational complexity and constant firefighting.
+                  </p>
+                  <p className="text-xl leading-relaxed text-muted-foreground max-w-xl mb-6">
+                    <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">So we took a different approach.</span>
                   </p>
                   <p className="text-xl leading-relaxed text-muted-foreground max-w-xl">
-                    So we built something <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">radically different</span>—an AI-native platform powered by a collaborative agentic mesh. 
-                    These specialized agents observe, learn, and act together across environments, empowering teams to <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">move fast, stay in control, and build with confidence</span>.
+                    RubixKube is an <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">AI-native platform built on a collaborative agentic mesh</span>. These specialized agents observe, learn, and act across environments—enabling teams to <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">move faster, maintain control, and build with confidence</span>.
                   </p>
                 </div>
               </div>
@@ -72,35 +76,37 @@ const About = () => {
                 <h3 className="text-2xl font-bold mb-6 text-gray-900">How We Got Here</h3>
                 
                 <p className="text-lg leading-relaxed text-muted-foreground mb-6">
-                  We've all been there, 2 AM alerts, digging through five different dashboards, trying to piece together what's actually broken. 
-                  Infrastructure teams were spending entire nights hunting down issues that should have been obvious, or worse, preventable.
+                  We have all experienced it. Late night alerts, switching between multiple dashboards, trying to understand what broke and why. 
+                  Infrastructure teams were spending countless hours troubleshooting issues that should have been easy to detect or, better yet, prevent entirely.
                 </p>
                 
                 <p className="text-lg leading-relaxed text-muted-foreground mb-8">
-                  The tools were supposed to help, but they just created more noise. More alerts, more dashboards, more complexity. 
-                  Great engineers were burning out not from building cool stuff, but from <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">constant firefighting</span>.
+                  The existing tools were meant to help, but instead they introduced more noise. More alerts, more dashboards, and more complexity. 
+                  Talented engineers were burning out not from building innovative solutions, but from being stuck in a cycle of <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">constant firefighting</span>.
                 </p>
 
                 <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">What We Built Instead</h3>
                 
                 <p className="text-lg leading-relaxed text-muted-foreground mb-6">
-                  We started with a simple idea: what if your infrastructure could actually talk to you? Not just beep and flash red, but genuinely 
-                  understand what's happening and take action. What if it learned from every incident and got smarter over time?
+                  We began with a fundamental idea. What if your infrastructure could actually communicate? Not just trigger alerts, but truly 
+                  understand what is happening and take meaningful action. What if it could learn from every incident and improve continuously?
                 </p>
                 
                 <p className="text-lg leading-relaxed text-muted-foreground mb-8">
-                  That's how RubixKube was born. These agents don't just observe and report—they understand context, remember patterns, and actually 
-                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">do something about it</span>. 
-                  Think of it as having a really smart teammate who never sleeps and remembers everything.
+                  That idea became RubixKube. Our intelligent agents go beyond monitoring and reporting. They <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">understand context, recognize patterns, and take action</span>. 
+                  Think of them as highly capable teammates who never sleep and never forget.
                 </p>
 
                 <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">Why This Changes Everything</h3>
                 
+                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                  With RubixKube, engineering teams can finally focus on what they do best. <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">Building exceptional products</span>. 
+                  Routine issues are handled autonomously. Each incident becomes a learning opportunity. Over time, those disruptive late night alerts become rare exceptions.
+                </p>
+                
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  Instead of waking up to fix the same problems over and over, teams using RubixKube get to focus on what they actually love—building 
-                  great products. The agents handle the repetitive stuff, learn from each incident, and gradually make those 2 AM calls a thing of the past. 
-                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">Your infrastructure finally works for you</span>, 
-                  not the other way around.
+                  Your infrastructure becomes a <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">proactive partner</span>. 
+                  Not just another source of friction.
                 </p>
               </div>
             </div>

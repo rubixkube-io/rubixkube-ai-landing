@@ -3,13 +3,11 @@ const testimonials = [
     quote: "RubixKube feels like a cloud-native co-pilot. It's made operations a conversation, not a battle.",
     author: "CTO",
     role: "AI Startup",
-    image: "/lovable-uploads/pexels-googledeepmind-18069230.jpg",
   },
   {
-    quote: "We deploy, debug, and optimize 10x faster now. RubixKube is truely a game-changer.",
+    quote: "We deploy, debug, and optimize 10x faster now. RubixKube is truly a game-changer.",
     author: "Lead SRE",
     role: "Fintech Scaleup",
-    image: "/lovable-uploads/pexels-googledeepmind-18069490.jpg",
   },
 ];
 
@@ -26,13 +24,6 @@ const Testimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.author}
-                  className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
-                />
-              </div>
               <div className="p-8">
                 <blockquote className="text-lg mb-6 italic text-gray-700">&ldquo;{testimonial.quote}&rdquo;</blockquote>
                 <div className="border-t pt-4">

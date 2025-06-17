@@ -1,107 +1,131 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Our_story from "./Our_story.png"
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
+import { PopupModal } from "react-calendly";
+import { InlineWidget } from "react-calendly"; 
+import CallToAction from '@/components/CallToAction';
 
 const About = () => {
+  const [isBookDemoFormOpen, setIsBookDemoFormOpen] = useState(false);
   return (
     <>
       <Header />
       
-      {/* Hero Section */}
-      <main className="pt-24">
-        <section className="relative py-24 px-6 md:px-12 xl:px-32 bg-gradient-to-br from-blue-50 via-slate-50 to-sky-50">
-          {/* Background decoration */}
+      {/* Hero Section - Hero style layout with text left, image right */}
+     
+        <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary/5 via-white to-accent/5 overflow-hidden">
+          {/* Background pattern - contained within hero section */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-16 -right-16 w-96 h-96 bg-gradient-to-br from-blue-100/40 to-sky-100/40 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-16 -left-16 w-96 h-96 bg-gradient-to-br from-slate-100/40 to-blue-100/40 rounded-full blur-3xl"></div>
+            <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-20 left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
           </div>
           
-          <div className="relative z-10 max-w-6xl mx-auto">
-            {/* Title with soft blue styling */}
-            <div className="text-center mb-16">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-sky-600 to-slate-600 bg-clip-text text-transparent leading-tight">
-                Our Story
-              </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-sky-400 mx-auto rounded-full"></div>
-            </div>
+          <div className="container mx-auto px-6 md:px-12 xl:px-32 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content - Left Side */}
+              <div className="text-left">
+                {/* Title - matching landing page typography */}
+                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in">
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Our Story</span>
+                </h1>
+                <div className="w-24 h-2 bg-gradient-to-r from-primary to-accent rounded-full mb-6 animate-fade-in" />
 
-            {/* Story content with soft blue theme */}
-            <div className="space-y-8 text-center max-w-4xl mx-auto">
-              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-blue-100/50">
-                <p className="text-xl leading-relaxed text-slate-700 font-medium">
-                  RubixKube was born out of a simple question: 
-                  <span className="text-blue-600 font-semibold"> What if managing infrastructure could be as intuitive as having a conversation?</span>
-                </p>
-              </div>
-
-              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-blue-100/50">
-                <p className="text-lg leading-relaxed text-slate-600">
-                  In a world flooded with dashboards, alerts, and YAML files, we saw teams drowning in complexity and reactive toil. 
-                  So we set out to build something <span className="text-sky-600 font-semibold">radically different</span>—an AI-native platform 
-                  that brings intelligence, autonomy, and reliability to infrastructure operations.
-                </p>
-              </div>
-
-              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-blue-100/50">
-                <p className="text-lg leading-relaxed text-slate-600">
-                  At its heart, RubixKube is powered by a <span className="text-blue-600 font-semibold">collaborative agentic mesh</span>—a system 
-                  of specialized AI agents that observe, plan, and act together across environments. These agents are enhanced by a dynamic 
-                  memory system that learns from every incident, enabling smarter, faster decisions over time.
-                </p>
-              </div>
-
-              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-blue-100/50">
-                <p className="text-lg leading-relaxed text-slate-600">
-                  Our conversational interface lets teams interact with their infrastructure naturally, turning complex tasks into 
-                  plain-language commands. With deep observability, built-in guardrails, and a focus on safety and governance, 
-                  RubixKube empowers teams to <span className="text-blue-600 font-semibold">move fast, stay in control, and build with confidence</span>.
-                </p>
-              </div>
-            </div>
-            
-            {/* Enhanced image section with soft blue theme */}
-            <div className="mt-20 flex justify-center">
-              <div className="relative group">
-                {/* Soft glow effect */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-300/30 via-sky-300/30 to-slate-300/30 rounded-3xl blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-700"></div>
-                
-                {/* Image container */}
-                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-blue-100/60">
-                  <img
-                    src={Our_story}
-                    alt="Abstract colorful shapes representing RubixKube's intuitive infrastructure management"
-                    className="w-full h-auto rounded-xl shadow-md transform group-hover:scale-[1.02] transition-transform duration-700"
-                    style={{ maxWidth: '900px' }}
-                  />
-                  
-                  {/* Subtle image overlay */}
-                  <div className="absolute inset-4 bg-gradient-to-t from-blue-50/20 to-transparent rounded-xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                {/* Main content - matching product-details structure */}
+                <div className="animate-fade-in">
+                  <p className="text-xl leading-relaxed text-muted-foreground max-w-xl mb-6">
+                    RubixKube began with a simple question: <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">What if managing infrastructure could be as intuitive as having a conversation?</span>
+                  </p>
+                  <p className="text-xl leading-relaxed text-muted-foreground max-w-xl mb-6">
+                    In a world saturated with dashboards, alerts, and complex configuration files, we saw engineering teams overwhelmed by operational complexity and constant firefighting.
+                  </p>
+                  <p className="text-xl leading-relaxed text-muted-foreground max-w-xl mb-6">
+                    <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">So we took a different approach.</span>
+                  </p>
+                  <p className="text-xl leading-relaxed text-muted-foreground max-w-xl">
+                    RubixKube is an <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">AI-native platform built on a collaborative agentic mesh</span>. These specialized agents observe, learn, and act across environments—enabling teams to <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">move faster, maintain control, and build with confidence</span>.
+                  </p>
                 </div>
-                
-                {/* Soft floating elements */}
-                <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-blue-300 to-sky-400 rounded-full opacity-40 animate-pulse"></div>
-                <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-gradient-to-br from-sky-300 to-slate-400 rounded-full opacity-40 animate-pulse delay-1000"></div>
+              </div>
+
+              {/* Image - Right Side */}
+              <div className="lg:block animate-fade-in relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-accent/10 blur-3xl -z-10"></div>
+                <img
+                  src={Our_story}
+                  alt="Abstract colorful shapes representing RubixKube's intuitive infrastructure management"
+                  className="rounded-2xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto hover:scale-105 transition-transform duration-300"
+                />
               </div>
             </div>
+                    </div>
+        </section>
 
-            {/* Soft call to action section */}
-            <div className="mt-20 text-center">
-              <div className="bg-gradient-to-r from-blue-500 to-sky-500 rounded-2xl p-8 text-white shadow-lg">
-                <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Infrastructure?</h3>
-                <p className="text-blue-50 mb-6 max-w-2xl mx-auto">
-                  Join the teams already using RubixKube to simplify their infrastructure operations and build the future of intelligent systems.
+        {/* Detailed Story Section */}
+        <section className="py-20 px-6 md:px-12 xl:px-32 bg-white">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              {/* Section Title */}
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">The Journey</h2>
+              </div>
+
+              {/* Blog-style Story Content */}
+              <div className="prose prose-lg max-w-none">
+                <h3 className="text-2xl font-bold mb-6 text-gray-900">How We Got Here</h3>
+                
+                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                  We have all experienced it. Late night alerts, switching between multiple dashboards, trying to understand what broke and why. 
+                  Infrastructure teams were spending countless hours troubleshooting issues that should have been easy to detect or, better yet, prevent entirely.
                 </p>
-                <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
-                  Get Started Today
-                </button>
+                
+                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                  The existing tools were meant to help, but instead they introduced more noise. More alerts, more dashboards, and more complexity. 
+                  Talented engineers were burning out not from building innovative solutions, but from being stuck in a cycle of <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">constant firefighting</span>.
+                </p>
+
+                <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">What We Built Instead</h3>
+                
+                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                  We began with a fundamental idea. What if your infrastructure could actually communicate? Not just trigger alerts, but truly 
+                  understand what is happening and take meaningful action. What if it could learn from every incident and improve continuously?
+                </p>
+                
+                <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+                  That idea became RubixKube. Our intelligent agents go beyond monitoring and reporting. They <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">understand context, recognize patterns, and take action</span>. 
+                  Think of them as highly capable teammates who never sleep and never forget.
+                </p>
+
+                <h3 className="text-2xl font-bold mb-6 text-gray-900 mt-12">Why This Changes Everything</h3>
+                
+                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                  With RubixKube, engineering teams can finally focus on what they do best. <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">Building exceptional products</span>. 
+                  Routine issues are handled autonomously. Each incident becomes a learning opportunity. Over time, those disruptive late night alerts become rare exceptions.
+                </p>
+                
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  Your infrastructure becomes a <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">proactive partner</span>. 
+                  Not just another source of friction.
+                </p>
               </div>
             </div>
           </div>
         </section>
-      </main>
+   
+        <CallToAction />
       
       <Footer />
+
+      {/* Contact Form for Book Demo */}
+      {isBookDemoFormOpen && (
+        <PopupModal
+          url="https://calendly.com/rubixkube/new-meeting"
+          onModalClose={() => setIsBookDemoFormOpen(false)}
+          open={isBookDemoFormOpen}
+          rootElement={document.getElementById("__next") || document.body}
+        />
+      )}
     </>
   );
 };

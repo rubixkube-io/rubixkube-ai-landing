@@ -23,7 +23,7 @@ const CallToAction = () => {
             with an evolving, AI-powered control plane at your side.
           </p>
           <Button
-            size="lg"
+            size="lg"                           
             className="bg-primary text-white hover:bg-primary-dark hover:scale-105 transition-all duration-300"
             onClick={() => setIsFormOpen(true)}
           >

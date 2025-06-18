@@ -1,15 +1,15 @@
 const testimonials = [
   {
-    quote:
-      "Every few years something quietly resets expectations in operations. RubixKube is one of those moments. What struck me wasn’t flashy analytics but the calm assurance RubixKube brings to live environments. It treats anomalies like solvable puzzles, handing my team a clear next move instead of another graph.",
-    author: "Ganesh Kumar",
-    role: "Sheshi AI",
+    quote: "RubixKube feels like a cloud-native co-pilot. It's made operations a conversation, not a battle.",
+    author: "CTO",
+    role: "AI Startup",
+    image: "/lovable-uploads/pexels-googledeepmind-18069230.jpg",
   },
   {
-    quote:
-      "It’s rare that something makes seasoned SREs pause mid-stand-up. RubixKube did.\nI’m impressed by how confidently it stays out of the way until it can add real value.\nIf this is the direction operations is heading, the game just changed, and not by inches.",
-    author: "Richie Sebastian",
-    role: "DevOps Lead",
+    quote: "We deploy, debug, and optimize 10x faster now. RubixKube is truely a game-changer.",
+    author: "Lead SRE",
+    role: "Fintech Scaleup",
+    image: "/lovable-uploads/pexels-googledeepmind-18069490.jpg",
   },
 ];
 
@@ -28,21 +28,19 @@ const Testimonials = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col"
-            >
-              <div className="p-8 flex flex-col justify-between h-full">
-                <blockquote className="text-lg italic text-gray-700 leading-relaxed mb-6 min-h-[220px] whitespace-pre-line">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </blockquote>
-                <div className="border-t pt-4 mt-auto">
-                  <div className="font-semibold text-primary">
-                    {testimonial.author}
-                  </div>
-                  <div className="text-muted-foreground text-sm">
-                    {testimonial.role}
-                  </div>
+            <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.author}
+                  className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8">
+                <blockquote className="text-lg mb-6 italic text-gray-700">&ldquo;{testimonial.quote}&rdquo;</blockquote>
+                <div className="border-t pt-4">
+                  <div className="font-semibold text-primary">{testimonial.author}</div>
+                  <div className="text-muted-foreground text-sm">{testimonial.role}</div>
                 </div>
               </div>
             </div>

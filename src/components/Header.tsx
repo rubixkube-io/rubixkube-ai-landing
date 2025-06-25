@@ -46,11 +46,10 @@ const Header = () => {
         <div className="hidden md:flex items-center space-x-4">
           <Button 
             variant="ghost" 
-            className="flex items-center gap-1 font-medium transition-all group relative"
+            className="flex items-center gap-1 font-medium transition-all group"
             onClick={() => setIsGetStartedFormOpen(true)}
           >
             <span className="font-semibold transition-colors">Get Started</span>
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300"></span>
           </Button>
           
           <Button 
@@ -115,17 +114,17 @@ const Header = () => {
 
           
           <div className="flex flex-col space-y-3">
-            <Button 
-              variant="ghost" 
-              className="w-full justify-center py-2 relative group overflow-hidden"
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsGetStartedFormOpen(true);
-              }}
-            >
-              <span className="font-semibold">Get Started</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300"></span>
-            </Button>
+            <Button
+  variant="ghost"
+  className="w-full justify-center py-2 font-semibold text-primary hover:bg-transparent focus:outline-none focus:ring-0 shadow-none"
+  onClick={() => {
+    setIsMobileMenuOpen(false);
+    setIsGetStartedFormOpen(true);
+  }}
+>
+  Get Started
+</Button>
+
             
             <Button 
               className="w-full bg-gradient-to-r from-primary to-accent text-white shadow-md rounded-full py-2 justify-center flex items-center gap-2"

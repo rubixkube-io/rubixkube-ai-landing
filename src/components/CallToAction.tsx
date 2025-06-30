@@ -19,8 +19,7 @@ const CallToAction = () => {
             Ready to Rethink Infra Ops?
           </h2>
           <p className="text-xl mb-8 text-white/90">
-            RubixKube helps you ship faster, operate smarter, and sleep better —
-            with an evolving, AI-powered control plane at your side.
+            RubixKube helps you ship faster, operate smarter, and sleep better with an evolving, AI-powered control plane at your side.
           </p>
           <Button
             size="lg"                           

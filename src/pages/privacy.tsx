@@ -5,43 +5,33 @@ import Footer from "../components/Footer";
 const PrivacyPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#f7faff] to-white font-sans text-gray-800 relative overflow-hidden">
-
       <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
-
       <Header />
-
-     <main className="flex-grow w-full px-6 sm:px-8 md:px-12 lg:px-24 xl:px-32 py-20 relative z-10">
-
-        {/* Page Title */}
-        <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4">
-          RubixKube™ Privacy & Data Usage Policy
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-lg text-muted-foreground mb-10">
+      <main className="flex-grow w-full px-6 sm:px-8 md:px-12 lg:px-24 xl:px-32 py-20 relative z-10">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4">RubixKube™ Privacy & Data Usage Policy</h1>
+        <p className="text-sm text-gray-500 mb-8">
           Effective Date: <span className="font-medium text-gray-800">25 June 2025</span>
         </p>
 
-        {/* Intro Paragraph
+        {/* Intro Paragraph */}
         <p className="text-base text-gray-700 mb-12 max-w-3xl leading-relaxed">
           At RubixKube™, we believe{" "}
-          <span className="font-semibold text-blue-600">
-            data privacy should be intuitive and secure
-          </span>. This policy outlines how your data is collected, used, and protected across our platform.
-        </p> */}
+          <span className="font-semibold text-blue-600">data privacy should be intuitive and secure</span>. 
+          This policy outlines how your data is collected, used, and protected across our platform.
+        </p>
 
-        {/* Sections */}
         <div className="space-y-14 text-base leading-relaxed max-w-5xl">
-          {/* Section Template */}
+          {/* 1. Introduction */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-2">1. Introduction</h2>
             <p>
               This Privacy & Data Usage Policy applies to all users of RubixKube™ services,
-              including our website, platform, APIs, and integrations. By using RubixKube™,
+              including our website, platform, APIs, and integrations. By using RubixKube™, 
               you agree to the practices described in this document.
             </p>
           </section>
 
+          {/* 2. What Information We Collect */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-4">2. What Information We Collect</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
@@ -72,6 +62,7 @@ const PrivacyPage = () => {
             </div>
           </section>
 
+          {/* 3. How We Use Your Data */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-4">3. How We Use Your Data</h2>
             <table className="w-full text-sm border border-gray-200 rounded-md overflow-hidden">
@@ -99,6 +90,7 @@ const PrivacyPage = () => {
             </table>
           </section>
 
+          {/* 4. Legal Basis */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-2">4. Legal Basis for Processing</h2>
             <ul className="list-disc ml-6 mt-2 text-muted-foreground">
@@ -109,6 +101,7 @@ const PrivacyPage = () => {
             </ul>
           </section>
 
+          {/* 5. Data Retention */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-2">5. Data Retention Policy</h2>
             <table className="w-full text-sm border border-gray-200 rounded-md overflow-hidden mt-4">
@@ -137,6 +130,7 @@ const PrivacyPage = () => {
             </p>
           </section>
 
+          {/* 6. Subprocessors */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-2">6. Subprocessors & Third Parties</h2>
             <ul className="list-disc ml-6 mt-2 text-muted-foreground">
@@ -154,6 +148,7 @@ const PrivacyPage = () => {
             </p>
           </section>
 
+          {/* 7. Security */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-2">7. Security Practices</h2>
             <ul className="list-disc ml-6 mt-2 text-muted-foreground">
@@ -161,9 +156,11 @@ const PrivacyPage = () => {
               <li>Role-based access controls (RBAC)</li>
               <li>Agent-based audit trails</li>
               <li>Vulnerability scanning and monitoring</li>
+              <li>Continuous monitoring of all access points</li>
             </ul>
           </section>
 
+          {/* 8. Rights & Controls */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-2">8. Your Rights & Controls</h2>
             <ul className="list-disc ml-6 mt-2 text-muted-foreground">
@@ -180,6 +177,7 @@ const PrivacyPage = () => {
             </p>
           </section>
 
+          {/* 9. Children’s Privacy */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-2">9. Children’s Privacy</h2>
             <p className="text-muted-foreground mt-2">
@@ -187,6 +185,7 @@ const PrivacyPage = () => {
             </p>
           </section>
 
+          {/* 10. International Transfers */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-2">10. International Transfers</h2>
             <p className="text-muted-foreground mt-2">
@@ -194,6 +193,7 @@ const PrivacyPage = () => {
             </p>
           </section>
 
+          {/* 11. Policy Changes */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-2">11. Changes to This Policy</h2>
             <p className="text-muted-foreground mt-2">
@@ -203,6 +203,7 @@ const PrivacyPage = () => {
             </p>
           </section>
 
+          {/* 12. Contact */}
           <section>
             <h2 className="text-2xl font-semibold text-blue-900 mb-2">12. Contact Us</h2>
             <p className="text-muted-foreground mt-2">
@@ -214,7 +215,6 @@ const PrivacyPage = () => {
           </section>
         </div>
       </main>
-
       <Footer />
     </div>
   );

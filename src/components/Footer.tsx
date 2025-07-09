@@ -1,4 +1,5 @@
-import { Github, Mail, Phone, MessageCircle, Linkedin, MapPin } from "lucide-react";
+import { Github, Mail, Linkedin, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,9 +10,21 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Product</h3>
             <ul className="space-y-2">
-              <li><a href="#features" className="text-muted-foreground hover:text-primary">Features</a></li>
-              <li><a href="/product-details" className="text-muted-foreground hover:text-primary">Details</a></li>
-              <li><a href="#testimonials" className="text-muted-foreground hover:text-primary">Testimonials</a></li>
+              <li>
+                <Link to="/#features" className="text-muted-foreground hover:text-primary">
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link to="/product-details" className="text-muted-foreground hover:text-primary">
+                  Details
+                </Link>
+              </li>
+              <li>
+                <Link to="/#testimonials" className="text-muted-foreground hover:text-primary">
+                  Testimonials
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -19,9 +32,32 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
-              <li><a href="/our-story" className="text-muted-foreground hover:text-primary">Our Story</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary">Blog</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary">Careers</a></li>
+              <li>
+                <Link to="/our-story" className="text-muted-foreground hover:text-primary">
+                  Our Story
+                </Link>
+              </li>
+              <li>
+  <a
+    href="https://dev.to/rubixkube"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-muted-foreground hover:text-primary"
+  >
+    Blog
+  </a>
+</li>
+
+               <li>
+  <a
+    href="https://www.linkedin.com/company/rubixkube/jobs/?viewAsMember=true"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-muted-foreground hover:text-primary"
+  >
+    Careers 
+  </a>
+</li>
             </ul>
           </div>
 
@@ -29,9 +65,17 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-primary">Documentation</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary">Help Center</a></li>
-              {/* <li><a href="#" className="text-muted-foreground hover:text-primary">API Reference</a></li> */}
+              <div>
+  <div className="flex flex-col space-y-1">
+    <Link to="/documentation" className="text-muted-foreground hover:text-primary">
+      Documentation
+    </Link>
+    <Link to="/help-center" className="text-muted-foreground hover:text-primary">
+      Help Center
+    </Link>
+  </div>
+</div>
+
             </ul>
           </div>
 
@@ -39,9 +83,16 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Legal</h3>
             <ul className="space-y-2">
-              <li><a href="/privacy" className="text-muted-foreground hover:text-primary">Privacy and Data Usage</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary">Terms</a></li>
-              {/* <li><a href="#" className="text-muted-foreground hover:text-primary">Security</a></li> */}
+              <li>
+                <Link to="/privacy" className="text-muted-foreground hover:text-primary">
+                  Privacy and Data Usage
+                </Link>
+              </li>
+              <li>
+                <a href="/terms" className="text-muted-foreground hover:text-primary">
+                  Terms
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -51,27 +102,14 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 text-primary mt-1" />
-                <a href="mailto:hello@rubixkube.ai" className="hover:underline">
+                <a href="mailto:connect@rubixkube.io" className="hover:underline">
                   connect@rubixkube.io
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                  <MapPin className="h-4 w-4 text-primary mt-1" />
-                  <p className="text-muted-foreground flex items-center gap-2">
-                  Bengaluru, India
-                  </p>
+                <MapPin className="h-4 w-4 text-primary mt-1" />
+                <p className="text-muted-foreground flex items-center gap-2">Bengaluru, India</p>
               </li>
-              {/* <li className="flex items-start gap-2">
-                <MessageCircle className="h-4 w-4 text-green-500 mt-1" />
-                <a
-                  href="https://wa.me/917483927043"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  Chat on WhatsApp
-                </a>
-              </li> */}
             </ul>
           </div>
         </div>
@@ -79,7 +117,7 @@ const Footer = () => {
         {/* Bottom Line */}
         <div className="border-t mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} RubixKube. All rights reserved.
+            © {new Date().getFullYear()} RubixKube™. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <a

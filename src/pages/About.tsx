@@ -101,7 +101,7 @@ const About = () => {
         </div>
       </section>
       <CallToAction />
-      <Footer />
+      
       {isBookDemoFormOpen && (
         <PopupModal
           url="https://calendly.com/rubixkube/new-meeting"

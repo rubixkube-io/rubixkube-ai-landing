@@ -1,3 +1,5 @@
+// src/pages/privacy.tsx
+
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -5,9 +7,12 @@ import Footer from "../components/Footer";
 const PrivacyPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#f7faff] to-white font-sans text-gray-800 relative overflow-hidden">
+      {/* Background Grid */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
+      <Header />
 
-      <main className="flex-grow w-full py-20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-20">
+      <main className="flex-grow w-full py-20 relative z-10 px-6 sm:px-8 md:px-12 lg:px-24 xl:px-32">
+        <div className="max-w-7xl mx-auto">
           {/* Page Title */}
           <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900 mb-4">
             RubixKube™ Privacy & Data Usage Policy
@@ -18,15 +23,6 @@ const PrivacyPage = () => {
             Effective Date: <span className="font-medium text-gray-800">25 June 2025</span>
           </p>
 
-          {/* Intro Paragraph */}
-          {/* <p className="text-base text-gray-700 mb-12 max-w-3xl leading-relaxed">
-            At RubixKube™, we believe{" "}
-            <span className="font-semibold text-blue-600">
-              data privacy should be intuitive and secure
-            </span>. This policy outlines how your data is collected, used, and protected across our platform.
-          </p> */}
-
-          {/* Sections */}
           <div className="space-y-14 text-base leading-relaxed max-w-5xl">
             {/* 1. Introduction */}
             <section>
@@ -223,7 +219,8 @@ const PrivacyPage = () => {
           </div>
         </div>
       </main>
-     
+
+      <Footer />
     </div>
   );
 };

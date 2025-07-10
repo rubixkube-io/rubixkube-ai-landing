@@ -12,7 +12,7 @@ import {
 import ContactForm from "@/components/ContactForm";
 import { PopupModal } from "react-calendly";
 
-const Header = () => {
+const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isGetStartedFormOpen, setIsGetStartedFormOpen] = useState(false);
   const [isBookDemoFormOpen, setIsBookDemoFormOpen] = useState(false);
@@ -43,8 +43,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : ""
+      className={`fixed w-full z-40 transition-all duration-300 ${
+        hasBanner ? "top-12" : "top-0"
+      } ${
+        isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-white/95 backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 xl:px-32 py-4 flex items-center justify-between">

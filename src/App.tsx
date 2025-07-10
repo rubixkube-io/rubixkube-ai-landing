@@ -1,15 +1,18 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import ProductDetails from "./pages/product-details";
+import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import About from "./pages/About";
-import NotFound from "./pages/NotFound";
+import ProductDetails from "./pages/product-details";
 import ContactForm from "./components/ContactForm";
-import PrivacyPage from "./pages/privacy"; // ✅ already imported
+import PrivacyPage from "./pages/privacy";
+import Terms from "./pages/Terms";
+import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -19,25 +22,87 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+  <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/our-story" element={<About />} />
-          <Route path="/product-details" element={<ProductDetails />} />
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <Index />
+              </Layout>
+            }
+          />
+          <Route
+            path="/our-story"
+            element={
+              <Layout>
+                <About />
+              </Layout>
+            }
+          />
+          <Route
+            path="/product-details"
+            element={
+              <Layout>
+                <ProductDetails />
+              </Layout>
+            }
+          />
           <Route
             path="/contact"
             element={
-              <ContactForm
-                isOpen={true}
-                onOpenChange={() => {}}
-                title="Contact Us"
-                description="We'd love to hear from you! Fill out the form below and our team will get back to you as soon as possible."
-                submitButtonText="Send Message"
-                formName="contact"
-              />
+              <Layout>
+                <ContactForm
+                  isOpen={true}
+                  onOpenChange={() => {}}
+                  title="Contact Us"
+                  description="We'd love to hear from you! Fill out the form below and our team will get back to you as soon as possible."
+                  submitButtonText="Send Message"
+                  formName="contact"
+                />
+              </Layout>
             }
           />
-          <Route path="/privacy" element={<PrivacyPage />} /> {/* ✅ added this */}
-          <Route path="*" element={<NotFound />} />
+          <Route
+            path="/privacy"
+            element={
+              <Layout>
+                <PrivacyPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/terms"
+            element={
+              <Layout>
+                <Terms />
+              </Layout>
+            }
+          />
+          <Route
+            path="/documentation"
+            element={
+              <Layout>
+                <NotFound />
+              </Layout>
+            }
+          />
+          <Route
+            path="/help-center"
+            element={
+              <Layout>
+                <NotFound />
+              </Layout>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Layout>
+                <NotFound />
+              </Layout>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

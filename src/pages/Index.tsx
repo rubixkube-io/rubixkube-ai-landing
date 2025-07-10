@@ -12,14 +12,18 @@ const Index = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash) {
-      const el = document.querySelector(location.hash);
-      if (el) {
-        setTimeout(() => {
+    const scrollToHash = () => {
+      if (location.pathname === "/" && location.hash) {
+        const id = location.hash.replace("#", "");
+        const el = document.getElementById(id);
+        if (el) {
           el.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        }
       }
-    }
+    };
+
+    // Delay to ensure DOM elements are mounted
+    setTimeout(scrollToHash, 200);
   }, [location]);
 
   return (
@@ -30,7 +34,7 @@ const Index = () => {
       <Testimonials />
       <EarlyAdaptation />
       <CallToAction />
-      <Footer />
+      
     </div>
   );
 };

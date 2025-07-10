@@ -3,7 +3,7 @@ const testimonials = [
     quote:
       "Every few years something quietly resets expectations in operations. RubixKube is one of those moments. What struck me wasn’t flashy analytics but the calm assurance RubixKube brings to live environments. It treats anomalies like solvable puzzles, handing my team a clear next move instead of another graph.",
     author: "Ganesh Kumar",
-    role: "Sheshi AI",
+    role: "CEO Sheshi AI",
   },
   {
     quote:

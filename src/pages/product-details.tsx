@@ -5,6 +5,7 @@ import { PopupModal } from "react-calendly";
 import { InlineWidget } from "react-calendly"; 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useEffect } from "react";
 import { 
   Network, 
   Brain, 
@@ -24,6 +25,11 @@ import CallToAction from "@/components/CallToAction";
 
 const ProductDetails = () => {
   const [isBookDemoFormOpen, setIsBookDemoFormOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <>
       <Header />
@@ -296,7 +302,7 @@ const ProductDetails = () => {
 
       <CallToAction />
 
-      <Footer />
+    
 
       {/* Calendly Integration Modal */}
       {isBookDemoFormOpen && (

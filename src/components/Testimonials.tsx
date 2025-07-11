@@ -14,7 +14,7 @@ const testimonials = [
   {
     quote:
       "RubixKube brought a sense of calm and clarity to our operations that we didn’t know we needed. Instead of overwhelming us with noise, it offered actionable insights that felt intuitive and timely. It's like having an experienced operator quietly guiding the system from behind the scenes. With RubixKube we're no longer reacting ,we're anticipating.",
-    author: "Karthik Pawar",
+    author: "Kartik Pawar",
     role: "Staff Engineer, Fello",
   },
 ];

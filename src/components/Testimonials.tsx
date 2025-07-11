@@ -11,6 +11,12 @@ const testimonials = [
     author: "Richie Sebastian",
     role: "DevOps Lead",
   },
+  {
+    quote:
+      "RubixKube brought a sense of calm and clarity to our operations that we didn’t know we needed. Instead of overwhelming us with noise, it offered actionable insights that felt intuitive and timely. It's like having an experienced operator quietly guiding the system from behind the scenes. With RubixKube we're no longer reacting ,we're anticipating.",
+    author: "Kartik Pawar",
+    role: "Staff Engineer, Fello",
+  },
 ];
 
 const Testimonials = () => {
@@ -26,7 +32,8 @@ const Testimonials = () => {
         <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
           See how teams are transforming their infrastructure operations with RubixKube
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
           {testimonials.map((testimonial, index) => (
             <div
               key={index}

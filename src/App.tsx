@@ -13,7 +13,7 @@ import PrivacyPage from "./pages/privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
-
+import TopBanner from "./components/TopBanner";
 const queryClient = new QueryClient();
 
 const App = () => (

@@ -32,10 +32,18 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
   const handleNavClick = (path, hash = "") => {
     if (location.pathname !== path) {
       navigate(`${path}${hash}`);
-    } else {
+    } else if (hash) {
       const el = document.querySelector(hash);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
+        // Calculate the offset based on whether banner is present
+        const headerHeight = hasBanner ? 112 : 80; // banner (48px) + header (64px) = 112px, or just header (80px)
+        const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
       }
     }
     setIsMobileMenuOpen(false);
@@ -44,7 +52,7 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
   return (
     <header
       className={`fixed w-full z-40 transition-all duration-300 ${
-        hasBanner ? "top-12" : "top-0"
+        hasBanner ? "top-10" : "top-0"
       } ${
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-white/95 backdrop-blur-sm"
       }`}

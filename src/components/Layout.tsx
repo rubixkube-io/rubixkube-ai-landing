@@ -1,24 +1,16 @@
 // src/components/Layout.tsx
-import React, { useState } from "react";
+import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import TopBanner from "./TopBanner";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const [showBanner, setShowBanner] = useState(true);
-
-  const handleCloseBanner = () => {
-    setShowBanner(false);
-  };
-
   return (
     <>
-      {showBanner && (
-        <TopBanner onClose={handleCloseBanner} />
-      )}
+      <TopBanner />
       <div className="relative">
-        <Header />
-        <main className={`min-h-[70vh] transition-all duration-300 ${showBanner ? 'pt-24' : 'pt-16'}`}>
+        <Header hasBanner={true} />
+        <main className="flex-grow min-h-[70vh] pt-32 md:pt-28 transition-all duration-300">
           {children}
         </main>
         <Footer />

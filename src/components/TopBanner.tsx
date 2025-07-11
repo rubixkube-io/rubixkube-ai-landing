@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Sparkles, X } from "lucide-react";
 
 const messages = [
-"RubixKube’s innovation is officially protected Patent filed!",
-"RubixKube’s AI-driven operations platform has entered the patent pipeline.",
+"RubixKube’s AI-driven operations platform has entered the Patent Pipeline.",
 ];
 
 const TopBanner = ({ onClose }: { onClose: () => void }) => {

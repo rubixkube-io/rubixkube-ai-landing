@@ -12,11 +12,8 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-left">
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in drop-shadow-lg">
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                RubixKube™
-              </span><br />
-              <span className="text-gray-900 dark:text-white">The Reliability Layer</span><br />
-              <span className="text-gray-900 dark:text-white">for AI Era</span>
+              <span className="text-gray-900 dark:text-white"><span className="font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">Reliability</span> Layer</span><br />
+              <span className="text-gray-900 dark:text-white">for the <span className="font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">AI</span> Era</span>
             </h1>
             
             <div className="w-24 h-2 bg-gradient-to-r from-primary to-accent rounded-full mb-6 animate-fade-in" />

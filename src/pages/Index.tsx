@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import VideoSection from "@/components/VideoSection"; // ✅ Correct path
+// import VideoSection from "@/components/VideoSection"; // ✅ Correct path
 import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import { EarlyAdaptation } from "@/components/Pricing";
@@ -12,7 +12,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <Hero />
-      <VideoSection />  {/* ✅ Insert here */}
+      {/* <VideoSection />  ✅ Insert here */}
       <Features />
       <Testimonials />
       <EarlyAdaptation />

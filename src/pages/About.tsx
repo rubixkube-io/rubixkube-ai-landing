@@ -42,7 +42,7 @@ const About = () => {
               <div className="w-24 h-2 bg-gradient-to-r from-primary to-accent rounded-full mb-6 animate-fade-in" />
               <div className="animate-fade-in">
                 <p className="text-xl leading-relaxed text-muted-foreground max-w-xl mb-6">
-                  RubixKube didn't start with a product idea. It started with a real problem:
+                  RubixKube didn't start with a product idea. RubixKube started with a real problem:
                 </p>
                 <p className="text-xl leading-relaxed text-muted-foreground max-w-xl mb-6">
                   Teams were drowning in dashboards, alerts, and tribal knowledge. Infra was evolving, but reliability was still a people problem.
@@ -80,7 +80,7 @@ const About = () => {
                 Because downtime doesn't just break systems. It breaks <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">trust. momentum. revenue.</span>
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground mb-8">
-                Not another tool. Not another LLM wrapper. RubixKube is the <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">reliability brain</span> your infra and your business never had.
+                Not another tool. Not another LLM wrapper. RubixKube is the <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">reliability layer</span> for your infra and business.
               </p>
 
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 mt-12">The Result</h2>

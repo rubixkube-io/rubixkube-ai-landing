@@ -14,7 +14,6 @@ import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import TopBanner from "./components/TopBanner";
-// import VideoSection from "./components/VideoSection";
 const queryClient = new QueryClient();
 
 const App = () => (

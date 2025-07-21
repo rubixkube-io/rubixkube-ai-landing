@@ -15,18 +15,18 @@ const Hero = () => {
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 RubixKube™
               </span><br />
-              <span className="text-gray-900 dark:text-white">Reliability Layer</span><br />
-              <span className="text-gray-900 dark:text-white">for the AI Era</span>
+              <span className="text-gray-900 dark:text-white">The Reliability Layer</span><br />
+              <span className="text-gray-900 dark:text-white">for AI Era</span>
             </h1>
             
             <div className="w-24 h-2 bg-gradient-to-r from-primary to-accent rounded-full mb-6 animate-fade-in" />
             
             <p className="text-xl md:text-xl text-muted-foreground max-w-xl mb-8 animate-fade-in leading-relaxed">
-              Your infrastructure is smart. It can scale itself. <strong>We make sure your revenue does too.</strong>
+              Your infrastructure is smart. It can scale itself. <span className="font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">We make sure your revenue does too.</span>
             </p>
             
             <p className="text-lg text-muted-foreground max-w-xl mb-10 animate-fade-in leading-relaxed">
-              RubixKube's Site Reliability Intelligence watches every signal, predicts failures, and heals issues before customers feel a thing.
+              RubixKube's <span className="font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">Site Reliability Intelligence</span> watches every signal, predicts failures, and heals issues before customers feel a thing.
             </p>
 
             {/* Why it matters section */}

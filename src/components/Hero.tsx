@@ -82,7 +82,7 @@ const Hero = () => {
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-in mt-8">
+            <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-in mt-8 mb-8 lg:mb-0">
               <Button 
                 size="lg"
                 className="bg-primary hover:bg-primary-dark group text-white shadow-lg shadow-primary/30 hover:shadow-primary/50 focus:ring-4 focus:ring-primary/30 focus:outline-none px-8 py-4 hover:scale-105 transition-all duration-300"
@@ -94,7 +94,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="lg:block animate-fade-in relative -mt-20">
+          <div className="lg:block animate-fade-in relative mt-8 lg:-mt-20">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-accent/10 blur-3xl -z-10"></div>
             <img
               src="/lovable-uploads/pexels-googledeepmind-17485819.jpg"

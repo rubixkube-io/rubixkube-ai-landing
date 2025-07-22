@@ -32,7 +32,7 @@ const Hero = () => {
             <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-6 animate-fade-in drop-shadow-lg">
               <span className="font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">The Reliability Layer</span>
               <span className="text-gray-900 dark:text-white"></span><br />
-              <span className="text-gray-900 dark:text-white">for the AI Era</span>
+              <span className="text-gray-900 dark:text-white">for AI Era</span>
             </h1>
             
             <div className="w-24 h-2 bg-gradient-to-r from-primary to-accent rounded-full mb-8 animate-fade-in" />

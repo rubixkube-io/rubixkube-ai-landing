@@ -39,11 +39,11 @@ const Hero = () => {
             
             <p className="text-xl md:text-xl text-muted-foreground max-w-xl mb-4 animate-fade-in leading-relaxed">
               Your infrastructure is smart. It can scale itself.<br />
-              <span className="font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">We make sure your revenue does too.</span>
+              <span className="font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">We make sure your revenue does too.</span>
             </p>
             
             <p className="text-lg text-muted-foreground max-w-xl mb-16 animate-fade-in leading-relaxed">
-              RubixKube's <span className="font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">Site Reliability Intelligence</span> watches every signal, predicts failures, and heals issues before customers feel a thing.
+              RubixKube's <span className="font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">Site Reliability Intelligence</span> watches every signal, predicts failures, and heals issues before customers feel a thing.
             </p>
 
             {/* Why it matters section */}

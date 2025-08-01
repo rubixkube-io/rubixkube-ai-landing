@@ -13,7 +13,8 @@ import PrivacyPage from "./pages/privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
-import TopBanner from "./components/TopBanner";
+import CaseStudyRouter from "./pages/CaseStudyRouter"; // Dynamic case study routing
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -22,8 +23,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-  <ScrollToTop />
+        <ScrollToTop />
         <Routes>
+          {/* Home */}
           <Route
             path="/"
             element={
@@ -32,6 +34,8 @@ const App = () => (
               </Layout>
             }
           />
+
+          {/* About */}
           <Route
             path="/our-story"
             element={
@@ -40,6 +44,8 @@ const App = () => (
               </Layout>
             }
           />
+
+          {/* Product Details */}
           <Route
             path="/product-details"
             element={
@@ -48,6 +54,18 @@ const App = () => (
               </Layout>
             }
           />
+
+          {/* Dynamic Case Study Route */}
+          <Route
+  path="/case-study/:issueType"
+  element={
+    <Layout>
+      <CaseStudyRouter />
+    </Layout>
+  }
+/>
+
+          {/* Contact Page */}
           <Route
             path="/contact"
             element={
@@ -63,6 +81,8 @@ const App = () => (
               </Layout>
             }
           />
+
+          {/* Privacy Page */}
           <Route
             path="/privacy"
             element={
@@ -71,6 +91,8 @@ const App = () => (
               </Layout>
             }
           />
+
+          {/* Terms Page */}
           <Route
             path="/terms"
             element={
@@ -79,6 +101,8 @@ const App = () => (
               </Layout>
             }
           />
+
+          {/* Placeholder/NotFound routes */}
           <Route
             path="/documentation"
             element={
@@ -95,6 +119,8 @@ const App = () => (
               </Layout>
             }
           />
+
+          {/* 404 fallback */}
           <Route
             path="*"
             element={

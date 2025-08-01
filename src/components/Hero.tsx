@@ -25,23 +25,23 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pb-16 bg-gradient-to-br from-primary/5 via-white to-accent/5 overflow-hidden">
+    <section className="pt-60 pb-16 bg-gradient-to-br from-primary/5 via-white to-accent/5 overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 xl:px-32">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div className="text-left pt-16 md:pt-32 lg:pt-60">
+          <div className="text-left">
             <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-6 animate-fade-in drop-shadow-lg">
               <span className="font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">The Reliability Layer</span>
               <span className="text-gray-900 dark:text-white"></span><br />
-              <span className="text-gray-900 dark:text-white">for AI Era</span>
+              <span className="text-gray-900 dark:text-white">for the AI Era</span>
             </h1>
-            
+
             <div className="w-24 h-2 bg-gradient-to-r from-primary to-accent rounded-full mb-8 animate-fade-in" />
-            
+
             <p className="text-xl md:text-xl text-muted-foreground max-w-xl mb-4 animate-fade-in leading-relaxed">
               Your infrastructure is smart. It can scale itself.<br />
               <span className="font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">We make sure your revenue does too.</span>
             </p>
-            
+
             <p className="text-lg text-muted-foreground max-w-xl mb-16 animate-fade-in leading-relaxed">
               RubixKube's <span className="font-bold bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">Site Reliability Intelligence</span> watches every signal, predicts failures, and heals issues before customers feel a thing.
             </p>
@@ -57,8 +57,8 @@ const Hero = () => {
               </Button>
             </div>
           </div>
-          
-          <div className="lg:block animate-fade-in relative pt-24 lg:-mt-20">
+
+          <div className="lg:block animate-fade-in relative mt-8 lg:-mt-20">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-accent/10 blur-3xl -z-10"></div>
             <img
               src="/lovable-uploads/pexels-googledeepmind-17485819.jpg"
@@ -67,9 +67,10 @@ const Hero = () => {
             />
           </div>
         </div>
-        {/* Why it matters section moved below the grid */}
+
+        {/* Why it matters section below the grid */}
         <div ref={whyItMattersRef} className="mt-20 animate-fade-in">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Why it matters</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Why it matters</h2>
           <div className={`flex flex-col md:flex-row gap-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}> 
             <div className="flex-1 flex items-start gap-4 bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md">
               <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">

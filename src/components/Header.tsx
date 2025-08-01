@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,6 +8,8 @@ import {
   ExternalLink,
   Menu,
   X,
+  ChevronDown,
+  FileText,
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import { PopupModal } from "react-calendly";
@@ -17,9 +19,11 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
   const [isGetStartedFormOpen, setIsGetStartedFormOpen] = useState(false);
   const [isBookDemoFormOpen, setIsBookDemoFormOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCaseStudyDropdownOpen, setIsCaseStudyDropdownOpen] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +31,20 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsCaseStudyDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   const handleNavClick = (path, hash = "") => {
@@ -47,6 +65,18 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
       }
     }
     setIsMobileMenuOpen(false);
+    setIsCaseStudyDropdownOpen(false);
+  };
+
+  const handleCaseStudyClick = () => {
+    setIsCaseStudyDropdownOpen(!isCaseStudyDropdownOpen);
+  };
+
+  const handleIssueTypeClick = (issueType: string) => {
+    // Navigate to specific issue type or handle as needed
+    console.log(`Navigating to ${issueType}`);
+    navigate(`/case-study/${issueType.toLowerCase().replace(/\s+/g, '-')}`);
+    setIsCaseStudyDropdownOpen(false);
   };
 
   return (
@@ -82,12 +112,59 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
             >
               Early Access
             </button>
+            
             <button
               onClick={() => handleNavClick("/", "#testimonials")}
               className="text-gray-600 hover:text-primary transition-colors"
             >
               Testimonials
             </button>
+
+            {/* Case Study Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={handleCaseStudyClick}
+                className="text-gray-600 hover:text-primary transition-colors flex items-center gap-1"
+              >
+                Case Studies
+                <ChevronDown 
+                  className={`h-4 w-4 transition-transform duration-200 ${
+                    isCaseStudyDropdownOpen ? 'rotate-180' : ''
+                  }`} 
+                />
+              </button>
+              
+              {isCaseStudyDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                  <button
+                    onClick={() => handleIssueTypeClick("Issue Type 1")}
+                    className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
+                  >
+                    <FileText className="h-4 w-4" />
+                    Infra Breakdown
+                  </button>
+                  <hr className="my-1 border-gray-100" />
+                  <button
+                    onClick={() => handleIssueTypeClick("Issue Type 2")}
+                    className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
+                  >
+                    <FileText className="h-4 w-4" />
+                    Query Overload
+
+
+                  </button>
+                  <hr className="my-1 border-gray-100" />
+                  <button
+                    onClick={() => handleIssueTypeClick("Issue Type 3")}
+                    className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
+                  >
+                    <FileText className="h-4 w-4" />
+                    Account Breach
+                  </button>
+                </div>
+              )}
+            </div>
+
             <button
               onClick={() => handleNavClick("/our-story")}
               className="text-gray-600 hover:text-primary transition-colors"
@@ -160,8 +237,34 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
               onClick={() => handleNavClick("/", "#testimonials")}
               className="text-gray-600 hover:text-primary transition-colors text-left"
             >
-              Success Stories
+              Testimonials
             </button>
+            
+            {/* Mobile Case Study Items */}
+            <div className="pl-4 space-y-2">
+              <div className="text-gray-500 text-sm font-medium">Case Studies:</div>
+              <button
+                onClick={() => handleIssueTypeClick("Issue Type 1")}
+                className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-2"
+              >
+                <FileText className="h-4 w-4" />
+                Issue Type 1
+              </button>
+              <button
+                onClick={() => handleIssueTypeClick("Issue Type 2")}
+                className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-2"
+              >
+                <FileText className="h-4 w-4" />
+                Issue Type 2
+              </button>
+              <button
+                onClick={() => handleIssueTypeClick("Issue Type 3")}
+                className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-2"
+              >
+                <FileText className="h-4 w-4" />
+                Issue Type 3
+              </button>
+            </div>
           </nav>
 
           <div className="flex flex-col space-y-3">

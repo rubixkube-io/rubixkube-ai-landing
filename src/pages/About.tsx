@@ -110,7 +110,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      <CallToAction />
+      
       
       {isBookDemoFormOpen && (
         <PopupModal

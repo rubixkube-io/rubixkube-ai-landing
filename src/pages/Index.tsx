@@ -16,7 +16,7 @@ const Index = () => {
       <Features />
       <Testimonials />
       <EarlyAdaptation />
-      <CallToAction />
+    
     
     </div>
   );

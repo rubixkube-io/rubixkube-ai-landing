@@ -3,6 +3,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import TopBanner from "./TopBanner";
+import CallToAction from "./CallToAction"; // ✅ Import the CTA component
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -13,6 +14,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <main className="flex-grow min-h-[70vh] pt-32 md:pt-28 transition-all duration-300">
           {children}
         </main>
+
+        {/* ✅ Insert CTA here before the final footer */}
+        <CallToAction />
+
         <Footer />
       </div>
     </>

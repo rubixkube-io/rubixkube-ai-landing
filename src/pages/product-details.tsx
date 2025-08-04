@@ -300,7 +300,7 @@ const ProductDetails = () => {
   </div>
 </section>
 
-      <CallToAction />
+  
 
     
 

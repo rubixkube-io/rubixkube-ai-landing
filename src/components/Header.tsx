@@ -10,6 +10,9 @@ import {
   X,
   ChevronDown,
   FileText,
+  Server,
+  Database,
+  Shield,
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import { PopupModal } from "react-calendly";
@@ -140,7 +143,7 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
                     onClick={() => handleIssueTypeClick("Issue Type 1")}
                     className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
                   >
-                    <FileText className="h-4 w-4" />
+                    <Server className="h-4 w-4" />
                     Infra Breakdown
                   </button>
                   <hr className="my-1 border-gray-100" />
@@ -148,17 +151,15 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
                     onClick={() => handleIssueTypeClick("Issue Type 2")}
                     className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
                   >
-                    <FileText className="h-4 w-4" />
+                    <Database className="h-4 w-4" />
                     Query Overload
-
-
                   </button>
                   <hr className="my-1 border-gray-100" />
                   <button
                     onClick={() => handleIssueTypeClick("Issue Type 3")}
                     className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
                   >
-                    <FileText className="h-4 w-4" />
+                    <Shield className="h-4 w-4" />
                     Account Breach
                   </button>
                 </div>
@@ -247,22 +248,22 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
                 onClick={() => handleIssueTypeClick("Issue Type 1")}
                 className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-2"
               >
-                <FileText className="h-4 w-4" />
-                Issue Type 1
+                <Server className="h-4 w-4" />
+                Infra Breakdown
               </button>
               <button
                 onClick={() => handleIssueTypeClick("Issue Type 2")}
                 className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-2"
               >
-                <FileText className="h-4 w-4" />
-                Issue Type 2
+                <Database className="h-4 w-4" />
+                Query Overload
               </button>
               <button
                 onClick={() => handleIssueTypeClick("Issue Type 3")}
                 className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-2"
               >
-                <FileText className="h-4 w-4" />
-                Issue Type 3
+                <Shield className="h-4 w-4" />
+                Account Breach
               </button>
             </div>
           </nav>

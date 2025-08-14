@@ -2,17 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
   CalendarCheck,
   Sparkles,
-  ExternalLink,
   Menu,
   X,
   ChevronDown,
-  FileText,
-  Server,
-  Database,
-  Shield,
+  Rocket,
+  AlertTriangle,
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import { PopupModal } from "react-calendly";
@@ -23,6 +19,7 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
   const [isBookDemoFormOpen, setIsBookDemoFormOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCaseStudyDropdownOpen, setIsCaseStudyDropdownOpen] = useState(false);
+  const [isMobileCaseStudyDropdownOpen, setIsMobileCaseStudyDropdownOpen] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -56,8 +53,7 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
     } else if (hash) {
       const el = document.querySelector(hash);
       if (el) {
-        // Calculate the offset based on whether banner is present
-        const headerHeight = hasBanner ? 112 : 80; // banner (48px) + header (64px) = 112px, or just header (80px)
+        const headerHeight = hasBanner ? 112 : 80;
         const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerHeight;
         
@@ -69,17 +65,22 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
     }
     setIsMobileMenuOpen(false);
     setIsCaseStudyDropdownOpen(false);
+    setIsMobileCaseStudyDropdownOpen(false);
   };
 
   const handleCaseStudyClick = () => {
     setIsCaseStudyDropdownOpen(!isCaseStudyDropdownOpen);
   };
 
+  const handleMobileCaseStudyClick = () => {
+    setIsMobileCaseStudyDropdownOpen(!isMobileCaseStudyDropdownOpen);
+  };
+
   const handleIssueTypeClick = (issueType: string) => {
-    // Navigate to specific issue type or handle as needed
-    console.log(`Navigating to ${issueType}`);
     navigate(`/case-study/${issueType.toLowerCase().replace(/\s+/g, '-')}`);
     setIsCaseStudyDropdownOpen(false);
+    setIsMobileCaseStudyDropdownOpen(false);
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -115,7 +116,6 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
             >
               Early Access
             </button>
-            
             <button
               onClick={() => handleNavClick("/", "#testimonials")}
               className="text-gray-600 hover:text-primary transition-colors"
@@ -123,7 +123,7 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
               Testimonials
             </button>
 
-            {/* Case Study Dropdown */}
+            {/* Case Study Dropdown (Without Case Study 1) */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={handleCaseStudyClick}
@@ -140,27 +140,19 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
               {isCaseStudyDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                   <button
-                    onClick={() => handleIssueTypeClick("Issue Type 1")}
+                    onClick={() => handleIssueTypeClick("Launch Rescue")}
                     className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
                   >
-                    <Server className="h-4 w-4" />
-                    Infra Breakdown
+                    <Rocket className="h-4 w-4" />
+                    Launch Rescue
                   </button>
                   <hr className="my-1 border-gray-100" />
                   <button
-                    onClick={() => handleIssueTypeClick("Issue Type 2")}
+                    onClick={() => handleIssueTypeClick("Crisis Tamed")}
                     className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
                   >
-                    <Database className="h-4 w-4" />
-                    Query Overload
-                  </button>
-                  <hr className="my-1 border-gray-100" />
-                  <button
-                    onClick={() => handleIssueTypeClick("Issue Type 3")}
-                    className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
-                  >
-                    <Shield className="h-4 w-4" />
-                    Account Breach
+                    <AlertTriangle className="h-4 w-4" />
+                    Crisis Tamed
                   </button>
                 </div>
               )}
@@ -241,30 +233,39 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
               Testimonials
             </button>
             
-            {/* Mobile Case Study Items */}
-            <div className="pl-4 space-y-2">
-              <div className="text-gray-500 text-sm font-medium">Case Studies:</div>
+            {/* Mobile Case Study Dropdown (Without Case Study 1) */}
+            <div className="relative">
               <button
-                onClick={() => handleIssueTypeClick("Issue Type 1")}
-                className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-2"
+                onClick={handleMobileCaseStudyClick}
+                className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-1 w-full justify-between"
               >
-                <Server className="h-4 w-4" />
-                Infra Breakdown
+                Case Studies
+                <ChevronDown 
+                  className={`h-4 w-4 transition-transform duration-200 ${
+                    isMobileCaseStudyDropdownOpen ? 'rotate-180' : ''
+                  }`} 
+                />
               </button>
-              <button
-                onClick={() => handleIssueTypeClick("Issue Type 2")}
-                className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-2"
-              >
-                <Database className="h-4 w-4" />
-                Query Overload
-              </button>
-              <button
-                onClick={() => handleIssueTypeClick("Issue Type 3")}
-                className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-2"
-              >
-                <Shield className="h-4 w-4" />
-                Account Breach
-              </button>
+              
+              {isMobileCaseStudyDropdownOpen && (
+                <div className="mt-2 ml-4 space-y-2 bg-gray-50/50 rounded-lg p-3 border border-gray-100">
+                  <button
+                    onClick={() => handleIssueTypeClick("Launch Rescue")}
+                    className="w-full text-left text-gray-600 hover:text-primary transition-colors flex items-center gap-2 py-1"
+                  >
+                    <Rocket className="h-4 w-4" />
+                    Launch Rescue
+                  </button>
+                  <hr className="my-1 border-gray-100" />
+                  <button
+                    onClick={() => handleIssueTypeClick("Crisis Tamed")}
+                    className="w-full text-left text-gray-600 hover:text-primary transition-colors flex items-center gap-2 py-1"
+                  >
+                    <AlertTriangle className="h-4 w-4" />
+                    Crisis Tamed
+                  </button>
+                </div>
+              )}
             </div>
           </nav>
 

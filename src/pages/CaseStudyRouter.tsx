@@ -17,7 +17,7 @@ const CaseStudyRouter = () => {
         return <CaseStudyType3 />;
       default:
         // Default to the first case study if no match
-        // return <CaseStudyType1 />;
+        return <CaseStudyType1 />;
     }
   };
   

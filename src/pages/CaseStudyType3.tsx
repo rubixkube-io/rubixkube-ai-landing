@@ -1,7 +1,7 @@
 import { ArrowLeft, CheckCircle, AlertTriangle, Zap, Brain, Search, TrendingUp, CalendarCheck, Monitor, Gamepad2, Shield, Globe, Clock, MessageSquare, Activity, Users, DollarSign } from "lucide-react";
 import { useState } from "react";
 import React from "react";
-
+import { PopupModal } from "react-calendly";
 const CaseStudyType3 = () => {
   const [activeTimelineItem, setActiveTimelineItem] = useState(0);
   const [isBookDemoFormOpen, setIsBookDemoFormOpen] = useState(false);
@@ -412,6 +412,16 @@ spec:
           </div>
         </div>
       </section>
+      {/* Calendly Modal */}
+      {isBookDemoFormOpen && (
+        <PopupModal
+          url="https://calendly.com/rubixkube/new-meeting"
+          onModalClose={() => setIsBookDemoFormOpen(false)}
+          open={isBookDemoFormOpen}
+          rootElement={document.getElementById("__next") || document.body}
+        />
+      )}
+      
 
     </div>
   );

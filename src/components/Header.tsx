@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
   CalendarCheck,
   Sparkles,
-  ExternalLink,
   Menu,
   X,
+  ChevronDown,
+  Rocket,
+  AlertTriangle,
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import { PopupModal } from "react-calendly";
@@ -17,9 +18,12 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
   const [isGetStartedFormOpen, setIsGetStartedFormOpen] = useState(false);
   const [isBookDemoFormOpen, setIsBookDemoFormOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCaseStudyDropdownOpen, setIsCaseStudyDropdownOpen] = useState(false);
+  const [isMobileCaseStudyDropdownOpen, setIsMobileCaseStudyDropdownOpen] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,14 +33,27 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsCaseStudyDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const handleNavClick = (path, hash = "") => {
     if (location.pathname !== path) {
       navigate(`${path}${hash}`);
     } else if (hash) {
       const el = document.querySelector(hash);
       if (el) {
-        // Calculate the offset based on whether banner is present
-        const headerHeight = hasBanner ? 112 : 80; // banner (48px) + header (64px) = 112px, or just header (80px)
+        const headerHeight = hasBanner ? 112 : 80;
         const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerHeight;
         
@@ -46,6 +63,23 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
         });
       }
     }
+    setIsMobileMenuOpen(false);
+    setIsCaseStudyDropdownOpen(false);
+    setIsMobileCaseStudyDropdownOpen(false);
+  };
+
+  const handleCaseStudyClick = () => {
+    setIsCaseStudyDropdownOpen(!isCaseStudyDropdownOpen);
+  };
+
+  const handleMobileCaseStudyClick = () => {
+    setIsMobileCaseStudyDropdownOpen(!isMobileCaseStudyDropdownOpen);
+  };
+
+  const handleIssueTypeClick = (issueType: string) => {
+    navigate(`/case-study/${issueType.toLowerCase().replace(/\s+/g, '-')}`);
+    setIsCaseStudyDropdownOpen(false);
+    setIsMobileCaseStudyDropdownOpen(false);
     setIsMobileMenuOpen(false);
   };
 
@@ -88,6 +122,42 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
             >
               Testimonials
             </button>
+
+            {/* Case Study Dropdown (Without Case Study 1) */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={handleCaseStudyClick}
+                className="text-gray-600 hover:text-primary transition-colors flex items-center gap-1"
+              >
+                Case Studies
+                <ChevronDown 
+                  className={`h-4 w-4 transition-transform duration-200 ${
+                    isCaseStudyDropdownOpen ? 'rotate-180' : ''
+                  }`} 
+                />
+              </button>
+              
+              {isCaseStudyDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                  <button
+                    onClick={() => handleIssueTypeClick("Launch Rescue")}
+                    className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
+                  >
+                    <Rocket className="h-4 w-4" />
+                    Launch Rescue
+                  </button>
+                  <hr className="my-1 border-gray-100" />
+                  <button
+                    onClick={() => handleIssueTypeClick("Crisis Tamed")}
+                    className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
+                  >
+                    <AlertTriangle className="h-4 w-4" />
+                    Crisis Tamed
+                  </button>
+                </div>
+              )}
+            </div>
+
             <button
               onClick={() => handleNavClick("/our-story")}
               className="text-gray-600 hover:text-primary transition-colors"
@@ -160,8 +230,43 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
               onClick={() => handleNavClick("/", "#testimonials")}
               className="text-gray-600 hover:text-primary transition-colors text-left"
             >
-              Success Stories
+              Testimonials
             </button>
+            
+            {/* Mobile Case Study Dropdown (Without Case Study 1) */}
+            <div className="relative">
+              <button
+                onClick={handleMobileCaseStudyClick}
+                className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-1 w-full justify-between"
+              >
+                Case Studies
+                <ChevronDown 
+                  className={`h-4 w-4 transition-transform duration-200 ${
+                    isMobileCaseStudyDropdownOpen ? 'rotate-180' : ''
+                  }`} 
+                />
+              </button>
+              
+              {isMobileCaseStudyDropdownOpen && (
+                <div className="mt-2 ml-4 space-y-2 bg-gray-50/50 rounded-lg p-3 border border-gray-100">
+                  <button
+                    onClick={() => handleIssueTypeClick("Launch Rescue")}
+                    className="w-full text-left text-gray-600 hover:text-primary transition-colors flex items-center gap-2 py-1"
+                  >
+                    <Rocket className="h-4 w-4" />
+                    Launch Rescue
+                  </button>
+                  <hr className="my-1 border-gray-100" />
+                  <button
+                    onClick={() => handleIssueTypeClick("Crisis Tamed")}
+                    className="w-full text-left text-gray-600 hover:text-primary transition-colors flex items-center gap-2 py-1"
+                  >
+                    <AlertTriangle className="h-4 w-4" />
+                    Crisis Tamed
+                  </button>
+                </div>
+              )}
+            </div>
           </nav>
 
           <div className="flex flex-col space-y-3">

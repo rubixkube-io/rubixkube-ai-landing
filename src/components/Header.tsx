@@ -2,11 +2,18 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
+  ArrowRight,
   CalendarCheck,
   Sparkles,
+  ExternalLink,
   Menu,
   X,
   ChevronDown,
+  FileText,
+  Server,
+  Database,
+  Shield,
+  Activity,
   Rocket,
   AlertTriangle,
 } from "lucide-react";
@@ -40,7 +47,6 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
         setIsCaseStudyDropdownOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -53,14 +59,12 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
     } else if (hash) {
       const el = document.querySelector(hash);
       if (el) {
+        // Calculate offset
         const headerHeight = hasBanner ? 112 : 80;
         const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerHeight;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
+
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
       }
     }
     setIsMobileMenuOpen(false);
@@ -77,7 +81,8 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
   };
 
   const handleIssueTypeClick = (issueType: string) => {
-    navigate(`/case-study/${issueType.toLowerCase().replace(/\s+/g, '-')}`);
+    console.log(`Navigating to ${issueType}`);
+    navigate(`/case-study/${issueType.toLowerCase().replace(/\s+/g, "-")}`);
     setIsCaseStudyDropdownOpen(false);
     setIsMobileCaseStudyDropdownOpen(false);
     setIsMobileMenuOpen(false);
@@ -87,9 +92,7 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
     <header
       className={`fixed w-full z-40 transition-all duration-300 ${
         hasBanner ? "top-10" : "top-0"
-      } ${
-        isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-white/95 backdrop-blur-sm"
-      }`}
+      } ${isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-white/95 backdrop-blur-sm"}`}
     >
       <div className="container mx-auto px-6 md:px-12 xl:px-32 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-8">
@@ -103,6 +106,8 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
               <img src="/Asset 12.svg" alt="RubixKube Symbol" className="h-6 w-auto" />
             </span>
           </a>
+
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6">
             <button
               onClick={() => handleNavClick("/", "#features")}
@@ -123,36 +128,41 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
               Testimonials
             </button>
 
-            {/* Case Study Dropdown (Without Case Study 1) */}
+            {/* Case Study Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={handleCaseStudyClick}
                 className="text-gray-600 hover:text-primary transition-colors flex items-center gap-1"
               >
                 Case Studies
-                <ChevronDown 
+                <ChevronDown
                   className={`h-4 w-4 transition-transform duration-200 ${
-                    isCaseStudyDropdownOpen ? 'rotate-180' : ''
-                  }`} 
+                    isCaseStudyDropdownOpen ? "rotate-180" : ""
+                  }`}
                 />
               </button>
-              
+
               {isCaseStudyDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                  <button
+                    onClick={() => handleIssueTypeClick("Reliability Matrix")}
+                    className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
+                  >
+                    <Activity className="h-4 w-4" /> Reliability Matrix
+                  </button>
+                  <hr className="my-1 border-gray-100" />
                   <button
                     onClick={() => handleIssueTypeClick("Launch Rescue")}
                     className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
                   >
-                    <Rocket className="h-4 w-4" />
-                    Launch Rescue
+                    <Rocket className="h-4 w-4" /> Launch Rescue
                   </button>
                   <hr className="my-1 border-gray-100" />
                   <button
                     onClick={() => handleIssueTypeClick("Crisis Tamed")}
                     className="w-full text-left px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors flex items-center gap-2"
                   >
-                    <AlertTriangle className="h-4 w-4" />
-                    Crisis Tamed
+                    <AlertTriangle className="h-4 w-4" /> Crisis Tamed
                   </button>
                 </div>
               )}
@@ -176,7 +186,6 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
           >
             <span className="font-semibold transition-colors">Get Started</span>
           </Button>
-
           <Button
             className="bg-gradient-to-r from-primary to-accent text-white shadow-md hover:shadow-xl rounded-full px-5 py-2 flex items-center gap-2 group hover:scale-105 transition-all duration-300"
             onClick={() => setIsBookDemoFormOpen(true)}
@@ -232,37 +241,42 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
             >
               Testimonials
             </button>
-            
-            {/* Mobile Case Study Dropdown (Without Case Study 1) */}
+
+            {/* Mobile Case Study Dropdown */}
             <div className="relative">
               <button
                 onClick={handleMobileCaseStudyClick}
                 className="text-gray-600 hover:text-primary transition-colors text-left flex items-center gap-1 w-full justify-between"
               >
                 Case Studies
-                <ChevronDown 
+                <ChevronDown
                   className={`h-4 w-4 transition-transform duration-200 ${
-                    isMobileCaseStudyDropdownOpen ? 'rotate-180' : ''
-                  }`} 
+                    isMobileCaseStudyDropdownOpen ? "rotate-180" : ""
+                  }`}
                 />
               </button>
-              
+
               {isMobileCaseStudyDropdownOpen && (
                 <div className="mt-2 ml-4 space-y-2 bg-gray-50/50 rounded-lg p-3 border border-gray-100">
+                  <hr className="my-1 border-gray-100" />
+                   <button
+                    onClick={() => handleIssueTypeClick("Reliability Matrix")}
+                    className="w-full text-left text-gray-600 hover:text-primary transition-colors flex items-center gap-2 py-1"
+                  >
+                    <Rocket className="h-4 w-4" /> Reliability Matrix
+                  </button>
                   <button
                     onClick={() => handleIssueTypeClick("Launch Rescue")}
                     className="w-full text-left text-gray-600 hover:text-primary transition-colors flex items-center gap-2 py-1"
                   >
-                    <Rocket className="h-4 w-4" />
-                    Launch Rescue
+                    <Rocket className="h-4 w-4" /> Launch Rescue
                   </button>
                   <hr className="my-1 border-gray-100" />
                   <button
                     onClick={() => handleIssueTypeClick("Crisis Tamed")}
                     className="w-full text-left text-gray-600 hover:text-primary transition-colors flex items-center gap-2 py-1"
                   >
-                    <AlertTriangle className="h-4 w-4" />
-                    Crisis Tamed
+                    <AlertTriangle className="h-4 w-4" /> Crisis Tamed
                   </button>
                 </div>
               )}
@@ -280,7 +294,6 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
             >
               Get Started
             </Button>
-
             <Button
               className="w-full bg-gradient-to-r from-primary to-accent text-white shadow-md rounded-full py-2 justify-center flex items-center gap-2"
               onClick={() => {
@@ -288,8 +301,7 @@ const Header = ({ hasBanner = true }: { hasBanner?: boolean }) => {
                 setIsBookDemoFormOpen(true);
               }}
             >
-              <CalendarCheck className="h-4 w-4" />
-              <span className="font-bold">Book Demo</span>
+              <CalendarCheck className="h-4 w-4" /> <span className="font-bold">Book Demo</span>
               <Sparkles className="h-3.5 w-3.5" />
             </Button>
           </div>

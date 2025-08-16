@@ -1,8 +1,55 @@
-import { ArrowLeft, CheckCircle, AlertTriangle, Zap, Brain, Search, TrendingUp, CalendarCheck, Monitor, Gamepad2, Shield, Globe, Clock, MessageSquare } from "lucide-react";
-import { useState } from "react";
+import { ArrowLeft, CheckCircle, AlertTriangle, Zap, Brain, Search, TrendingUp, CalendarCheck, Monitor, Gamepad2, Shield, Globe, Clock, MessageSquare, X } from "lucide-react";
+import { useState, useEffect } from "react";
 import React from "react";
 
-const CaseStudyType2= () => {
+// Calendly Popup Modal Component
+const PopupModal = ({ url, onModalClose, open, rootElement }) => {
+  useEffect(() => {
+    if (open) {
+      // Load Calendly widget script
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.head.appendChild(script);
+
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+      
+      return () => {
+        document.body.style.overflow = 'unset';
+        // Clean up script
+        const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+        if (existingScript) {
+          existingScript.remove();
+        }
+      };
+    }
+  }, [open]);
+
+  if (!open) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="bg-white rounded-lg shadow-xl w-full max-w-4xl mx-4 h-[90vh] relative">
+        <button
+          onClick={onModalClose}
+          className="absolute top-4 right-4 z-10 p-2 hover:bg-gray-100 rounded-full transition-colors bg-white shadow-md"
+        >
+          <X className="w-5 h-5 text-gray-500" />
+        </button>
+        <div className="w-full h-full">
+          <div
+            className="calendly-inline-widget w-full h-full rounded-lg"
+            data-url={url}
+            style={{ minWidth: '320px', height: '100%' }}
+          ></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CaseStudyType2 = () => {
   const [activeTimelineItem, setActiveTimelineItem] = useState(0);
   const [isBookDemoFormOpen, setIsBookDemoFormOpen] = useState(false);
 
@@ -371,7 +418,8 @@ spec:
           </div>
         </div>
       </section>
-{/* CTA */}
+
+      {/* CTA */}
       <section className="py-12 md:py-20 px-6 text-center bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-blue-600/5"></div>
         <div className="max-w-4xl mx-auto relative">
@@ -406,6 +454,16 @@ spec:
           </div>
         </div>
       </section>
+
+      {/* Calendly Modal */}
+      {isBookDemoFormOpen && (
+        <PopupModal
+          url="https://calendly.com/rubixkube/new-meeting"
+          onModalClose={() => setIsBookDemoFormOpen(false)}
+          open={isBookDemoFormOpen}
+          rootElement={document.getElementById("__next") || document.body}
+        />
+      )}
 
     </div>
   );

@@ -54,7 +54,7 @@ const animationStyles = `
 // Map of dates and available seats
 // Starting from May 18, 2025, with daily decreases of 10-20 seats
 const availableSeatsData = {
-  "2025-09-13": 100, // No seats available after this date
+  "2025-09-13": 42, // No seats available after this date
 
 };
 
@@ -231,7 +231,7 @@ const EarlyAdaptation = () => {
           Early Adaptation Program
         </h2>
         <p className="text-xl text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-          Be among the first to experience our revolutionary platform with exclusive benefits and priority support.
+          Be among the first to experience our platform with exclusive benefits and priority support.
         </p>
         
         <div className="bg-white p-10 rounded-xl shadow-2xl max-w-3xl mx-auto">
